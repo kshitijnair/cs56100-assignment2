@@ -2,6 +2,8 @@ const {MongoClient} = require('mongodb')
 const mongoURI = 'mongodb+srv://usernair:AlB40tXbYF8dD032@testcluster0.s70kxoj.mongodb.net/sample_airbnb?retryWrites=true&w=majority'
 const client = new MongoClient(mongoURI);
 
+const data = require('./testjson');
+
 module.exports = {
     connectToDB: async function () {
       try {
@@ -29,5 +31,12 @@ module.exports = {
 
         console.log(result);
         return result;
+    },
+    getTestData: () => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(data);
+            }, 1000);
+        })
     }
 }

@@ -4,17 +4,18 @@ const dotenv = require('dotenv')
 const database = require('./mongo')
 const jsonSample = require('./testjson.js')
 
-const data = jsonSample.data;
+let testData;
 
-data.forEach((item) => {
-    console.log(item)
-})
+database.getTestData().then((data) => {
+    testData = data;
+    console.log(testData);
+});
 
 // const { MongoClient } = require('mongodb')
 
 dotenv.config();
 const app = express()
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3002;
 
 // database.connectToDB();
 
