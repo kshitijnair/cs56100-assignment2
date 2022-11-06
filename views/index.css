@@ -1,0 +1,16 @@
+#addItem {
+    /* border: 1px solid black; */
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+    /* background-color: black; */
+    background: linear-gradient(135deg, rgba(237, 76, 134, 0.71), rgba(237, 76, 134, 0.31), rgba(232, 232, 232, 0));
+    /* background-color: linear-gradient(45deg, black, blue); */
+    /* background: linear-gradient(45deg, blue, red);; */
+}
+
+img {
+    /* border: 1px solid green; */
+    width: 60%;
+    margin: 40px;
+}
