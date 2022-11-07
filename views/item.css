@@ -1,0 +1,39 @@
+
+main {
+    width: 60%;
+    height: auto;
+    margin: auto;
+    margin-top: 5rem;
+    border-radius: 2rem;
+    padding: 2rem;
+    background-color: antiquewhite;
+}
+
+h2 {
+    font-size: 32px;
+    font-family: sans-serif;
+}
+
+span {
+    display: none;
+}
+
+p {
+    font-size: larger;
+    font-family: sans-serif;
+}
+
+button {
+    font-size: 18px;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: bisque;
+    box-shadow: 2px 5px 10px rgba(154, 154, 154, 0.5);
+}
+
+button:hover {
+    cursor: pointer;
+}

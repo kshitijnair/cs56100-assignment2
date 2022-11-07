@@ -22,11 +22,19 @@ module.exports = {
         }
     },
     getAll: async function() {
-        let cursor = await client.db('cs5610').collection('task').find();
+        let cursor = await client.db('cs5610').collection('wardrobe1').find();
         const result = await cursor.toArray();
-        console.log(result);
+        // console.log(result);
         return result;
     },
+    readOne: async function (filter) {
+        const result = await client.db("cs5610").collection("wardrobe1").findOne(filter);
+        return result;
+   },
+   deleteOne: async function (filter) {
+        const result = await client.db("cs5610").collection("wardrobe1").deleteOne(filter);
+        return result;
+   },
     getTestData: () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {

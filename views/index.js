@@ -1,5 +1,3 @@
-// alert("WOW")
-
 const itemBox = document.getElementById('addItem')
 const collections = document.getElementById('collections')
 const backdrop = document.getElementById('backdrop')
@@ -19,7 +17,6 @@ function removePopup() {
 backdrop.addEventListener('click', removePopup)
 
 async function addItem() {
-    // console.log('item being added');
     // let url = 'http://localhost:3000/addItem';
     // let data = {'name': 'John Doe', 'occupation': 'Aur Doe'};
     // let res = await fetch(url, {
@@ -34,19 +31,14 @@ async function addItem() {
     //     // let ret = await res.json();
     //     console.log('added successfully')
     //     return "OKURR";
-
     // } else {
     //     return `HTTP error: ${res.status}`;
     // }
-    // await fetch('');
-    // window.location.href = '/addItem';
     showPopup();
 }
 
 itemBox.addEventListener('click', addItem);
 
-// for(let i = 0; i < 4; i++) {
-//     let p = itemBox.cloneNode(true);
-//     collections.appendChild(p)
-//     console.log("ejrbhieruhb")
-// }
+async function openItem(_id) {
+    window.location.href = `/getItem?id=${_id}`
+}

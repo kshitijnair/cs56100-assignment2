@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{title}
+    body 
+        main
+            h2 #{title}
+            span(id='identifier') #{_id}
+            p #{description}
+            button(id='editBtn') Edit 
+            button(id='deleteBtn') Delete
+        div(id='editPopup')
+            form(action="/editItem", method="UPDATE") 
+                p
+                    input(name='title', value='', type='text', placeholder='Title')
+                p
+                    textarea(name='description', value='', type='text', placeholder='Description', cols="34", rows="8")
+                input(id='submit', value='Add', type='submit')
+    style 
+        include ./item.css
+    script 
+        include ./item.js

@@ -19,6 +19,11 @@ html(lang="en")
                 div(id='addItem', class='item')
                     img(src="./assets/plus.png", alt="")
                     p(id='title') Add New Item
+
+                each item in wardrobe
+                    div(id='addItem', class='item', _id=item._id, onclick=`openItem('${item._id}')`)
+                        img(src="./assets/plus.png", alt="")
+                        p(id='title')= item.title
                 //- div(id='addItem', class='item')
                 //-     img(src="./assets/plus.png", alt="")
                 //-     p(id='title') Black Jeans

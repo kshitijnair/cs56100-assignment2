@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const upload = multer();
 const database = require('./mongo')
+const { ObjectId } = require("mongodb");
 const jsonSample = require('./testjson.js')
-const { json } = require('express')
 
 let testData;
 
@@ -38,8 +38,10 @@ app.use(express.json())
 app.set("view engine", "pug");
 app.set("views", "./views");
 
-app.get('/', (req, res) => {
-    res.render('index')
+app.get('/', async (req, res) => {
+    const wardrobe = await database.getAll();
+    // console.log(wardrobe);
+    res.render('index', {wardrobe: wardrobe})
 })
 
 app.get('/test', (req, res) => {
@@ -50,12 +52,29 @@ app.post('/addItem', (req, res) => {
     let jsonData = req.body
     console.log('*******************************')
     console.log(jsonData)
-    // add to DB here
 
     database.addToDb(jsonData);
 
     console.log("ADDING ITEM ROUTE AS POST IS WORKING.")
     res.sendStatus(200)
+})
+
+app.get('/getItem', async (req, res) => {
+    console.log('******************************')
+    const id = req.query['id'];
+    let item = await database.readOne({_id: ObjectId(id)});
+    console.log(item);
+    // res.json(item);
+    res.render('item', {title: item.title, description: item.description, _id: item._id})
+})
+
+app.delete('/deleteItem', async (req, res) =>{
+    console.log('deleting item')
+    const id = req.query['id'];
+    console.log(id)
+    let result = await database.deleteOne({_id: ObjectId(id)});
+    console.log(result);
+    res.send(result)
 })
 
 app.use((req, res, next) => {

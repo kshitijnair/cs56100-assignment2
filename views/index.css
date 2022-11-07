@@ -43,7 +43,7 @@ main {
     /* border: 1px solid black; */
     width: 180px;
     height: 180px;
-    box-shadow: 2px 2px 20px rgba(237, 76, 135, 0.231);
+    box-shadow: 2px 2px 25px rgba(237, 76, 135, 0.2);
 }
 
 .item:hover {
