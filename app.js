@@ -1,6 +1,9 @@
 const express = require('express')
 const axios = require('axios')
 const dotenv = require('dotenv')
+const bodyParser = require('body-parser');
+const multer = require('multer');
+const upload = multer();
 const database = require('./mongo')
 const jsonSample = require('./testjson.js')
 const { json } = require('express')
@@ -20,7 +23,12 @@ dotenv.config();
 const app = express()
 const port = process.env.PORT || 3002;
 
-// database.connectToDB();
+// for parsing application/json
+app.use(bodyParser.json()); 
+// for parsing application/xwww-
+app.use(bodyParser.urlencoded({ extended: true }));
+// for parsing multipart/form-data
+app.use(upload.array());
 
 // Serving static files
 app.use(express.static('public'));
@@ -45,7 +53,7 @@ app.post('/addItem', (req, res) => {
     // add to DB here
 
     database.addToDb(jsonData);
-    
+
     console.log("ADDING ITEM ROUTE AS POST IS WORKING.")
     res.sendStatus(200)
 })

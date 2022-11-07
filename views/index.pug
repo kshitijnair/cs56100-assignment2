@@ -10,6 +10,7 @@ html(lang="en")
         link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
         link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;700&display=swap")
         title Collections
+    body 
         //- h1 Wow whatta clothes
         div(id='navbar')
             p Bhattrobe
@@ -30,8 +31,13 @@ html(lang="en")
                 //- div(id='addItem', class='item')
                 //-     img(src="./assets/plus.png", alt="")
                 //-     p(id='title') Green 
-                
-    
-    body 
+        div(id='backdrop')
+        div(id='itemAddPopup')
+            form(action = '/addItem', method = 'POST')
+                p
+                    input(name='title', value='', type='text', placeholder='Title')
+                p
+                    textarea(name='description', value='', type='text', placeholder='Description', cols="34", rows="8")
+                input(id='submit', value='Add', type='submit')
     script
         include ./index.js
