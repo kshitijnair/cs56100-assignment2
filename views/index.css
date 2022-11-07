@@ -55,3 +55,13 @@ img {
     width: 60%;
     margin: 40px;
 }
+
+#title {
+    /* border: 1px solid black; */
+    width: 180px;
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    color: rgb(77, 77, 77);
+}
