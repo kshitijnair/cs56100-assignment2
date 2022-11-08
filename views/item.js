@@ -5,10 +5,9 @@ const backdrop = document.getElementById('backdrop')
 const editPopup = document.getElementById('editPopup');
 
 async function deleteItem() {
-    console.log('aaaaaaaaaaaaa')
     const id = identifier.innerHTML
     console.log('IN DELETE ITEM', id);
-    let url = `http://localhost:3000/deleteItem/?id=${id}`;
+    let url = `https://cs5610-a2.onrender.com/deleteItem/?id=${id}`;
     let res = await fetch(url, {
         method: 'DELETE',
         headers: {

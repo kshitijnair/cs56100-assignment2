@@ -1,6 +1,12 @@
 const {MongoClient} = require('mongodb')
-const mongoURI = 'mongodb://usernamenair:qwerty1234@ac-5asvyoe-shard-00-00.s70kxoj.mongodb.net:27017,ac-5asvyoe-shard-00-01.s70kxoj.mongodb.net:27017,ac-5asvyoe-shard-00-02.s70kxoj.mongodb.net:27017/cs5610?ssl=true&replicaSet=atlas-is1nhf-shard-0&authSource=admin&retryWrites=true&w=majority'
+const dotenv = require('dotenv')
+
+dotenv.config();
+
+// const mongoURI = 'mongodb://usernamenair:qwerty1234@ac-5asvyoe-shard-00-00.s70kxoj.mongodb.net:27017,ac-5asvyoe-shard-00-01.s70kxoj.mongodb.net:27017,ac-5asvyoe-shard-00-02.s70kxoj.mongodb.net:27017/cs5610?ssl=true&replicaSet=atlas-is1nhf-shard-0&authSource=admin&retryWrites=true&w=majority'
+const mongoURI = process.env.mongoURI 
 const client = new MongoClient(mongoURI)
+
 
 const data = require('./testjson')
 
