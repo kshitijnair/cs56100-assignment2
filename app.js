@@ -77,6 +77,20 @@ app.delete('/deleteItem', async (req, res) =>{
     res.send(result)
 })
 
+app.post('/updateItem', async (req, res) => {
+    console.log('***UPDAING ITEM****')
+    const updatedData = {
+        title: `${req.body.title}`,
+        description: `${req.body.description}`
+    };
+    console.log("the id is: ",req.body.id)
+    let item = await database.updateOne({_id: ObjectId(req.body.id)}, updatedData);
+    console.log(item);
+    // res.json(item);
+    // res.render('item', {title: item.title, description: item.description, _id: item._id})
+    res.send({status:200})
+})
+
 app.use((req, res, next) => {
     res.render('404')
 })

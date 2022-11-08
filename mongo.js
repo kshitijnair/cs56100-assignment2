@@ -30,11 +30,19 @@ module.exports = {
     readOne: async function (filter) {
         const result = await client.db("cs5610").collection("wardrobe1").findOne(filter);
         return result;
-   },
-   deleteOne: async function (filter) {
+    },
+    deleteOne: async function (filter) {
         const result = await client.db("cs5610").collection("wardrobe1").deleteOne(filter);
         return result;
-   },
+    },
+    updateOne: async function (filter, update) {
+        const options = { upsert: true };
+        const updatedData = {
+            $set: update,
+        };
+        const result = await client.db("cs5610").collection("wardrobe1").updateOne(filter, updatedData, options)
+        return result;
+    },
     getTestData: () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {

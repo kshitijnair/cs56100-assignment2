@@ -13,7 +13,8 @@ html(lang="en")
     body 
         //- h1 Wow whatta clothes
         div(id='navbar')
-            p Bhattrobe
+            p The Digital Wardrobe
+        h3 Digitize your closet
         main
             div(id='collections')
                 div(id='addItem', class='item')
@@ -40,9 +41,9 @@ html(lang="en")
         div(id='itemAddPopup')
             form(action = '/addItem', method = 'POST')
                 p
-                    input(name='title', value='', type='text', placeholder='Title')
+                    input(name='title', value='', type='text', placeholder='Title' required)
                 p
-                    textarea(name='description', value='', type='text', placeholder='Description', cols="34", rows="8")
+                    textarea(name='description', value='', type='text', placeholder='Description', cols="34", rows="8" required)
                 input(id='submit', value='Add', type='submit')
     script
         include ./index.js
